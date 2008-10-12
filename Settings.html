@@ -1,0 +1,51 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+	<title>Top Process Settings</title>	
+	<style>
+		body {
+			font-family: 'Segoe UI', Tahoma, Verdana, Arial, sans-serif;
+			font-size: 9pt;
+			width:250px;
+			height:80px;
+			margin: 0;
+			padding: 0;
+		}
+		
+		#error {
+			color: red;
+		}
+	</style>
+	<script>
+	function init() {
+		var gamertag = System.Gadget.Settings.read("gamertag");
+		if (gamertag != "")
+			document.getElementById("gamertag").value = gamertag;
+	}
+
+	System.Gadget.onSettingsClosing = SettingsClosing;
+	function SettingsClosing(event)
+	{
+		try {
+
+	 		if (event.closeAction == event.Action.commit) {
+				try {
+					var gamertag = document.getElementById("gamertag").value;
+				} catch (err) {
+					error.innerText = "Please input a gamertag.";
+					event.cancel = true;
+				}
+				if(gamertag != "")
+					System.Gadget.Settings.write("gamertag", gamertag);
+			}
+			
+			event.cancel = false;
+		} catch (err) {error.innerText += err.name+" - "+err.message; event.cancel = true;}
+	}
+	</script>
+</head>
+<body onload="init()">
+	<label>Gamertag: <input id="gamertag" type="text" size="20" value="Major Nelson"></label><br>
+	<span id="error"></span>
+</body>
+</html>
