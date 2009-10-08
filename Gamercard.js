@@ -6,8 +6,15 @@
  */
 
 function init() {
-	LoadSettings();
-	dockedState();
+  LoadSettings();
+  
+  // Only do the dock-undock stuff on Vista
+  if (System.Gadget.platformVersion.match(/^1.0.6/)) {
+    System.Gadget.onUndock = dockedState;
+    System.Gadget.onDock = dockedState;
+  	dockedState();
+  }
+  
 	update();
 }
 
@@ -38,8 +45,7 @@ function dockedState() {
 	System.Gadget.endTransition(System.Gadget.TransitionType.morph, 0.2);
 }
 
-System.Gadget.onUndock = dockedState;
-System.Gadget.onDock = dockedState; 
+
 
 /* Settings */
 System.Gadget.settingsUI = "Settings.html";
