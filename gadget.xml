@@ -2,9 +2,9 @@
 <gadget>
     <name>Xbox Live Gamercard</name>
     <namespace>Brh.Gadgets</namespace>
-    <version>1.3</version>
+    <version>1.4</version>
     <author name="Benjamin Hollis">
-        <info url="http://brh.numbera.com/software/sidebargadgets/" text="BRH.numbera.com" />
+        <info url="http://benhollis.net/software/sidebargadgets/" text="BenHollis.net" />
     <logo src="icon.png" />
     </author>
     <copyright>&#169; 2007</copyright>
