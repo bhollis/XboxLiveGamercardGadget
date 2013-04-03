@@ -6,7 +6,7 @@ This very simple Sidebar gadget just shows an Xbox Live Gamercard. When docked, 
 
 ## Install
 
-[Install the latest version of TopProcess](http://benhollis.net/software/sidebargadgets/XboxLiveGamercard.gadget)
+[Install the latest version of Xbox Live Gamercard](http://benhollis.net/software/sidebargadgets/XboxLiveGamercard.gadget)
 
 ## Development & Contribution
 
